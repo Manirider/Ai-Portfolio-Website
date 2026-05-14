@@ -1,6 +1,39 @@
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ACHIEVEMENTS } from '../data/experience'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
+import { useRef, useState } from 'react'
+
+function SpotlightCard({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [opacity, setOpacity] = useState(0)
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return
+    const { left, top } = ref.current.getBoundingClientRect()
+    setPosition({ x: e.clientX - left, y: e.clientY - top })
+  }
+
+  return (
+    <div
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setOpacity(1)}
+      onMouseLeave={() => setOpacity(0)}
+      className={`relative overflow-hidden ${className}`}
+    >
+      <div
+        className="pointer-events-none absolute -inset-px opacity-0 transition duration-300"
+        style={{
+          opacity,
+          background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(59, 130, 246, 0.1), transparent 40%)`,
+        }}
+      />
+      {children}
+    </div>
+  )
+}
+
 
 export function Achievements() {
   const stats = [
@@ -35,16 +68,18 @@ export function Achievements() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             {stats.map((stat, i) => (
               <StaggerItem key={i}>
-                <motion.div
-                  className="p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 text-center hover:border-white/30 hover:bg-white/10 transition-all"
-                  whileHover={{ scale: 1.05, y: -4 }}
-                >
-                  <div className="text-3xl mb-2" aria-hidden="true">{stat.icon}</div>
-                  <p className="text-2xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text">
-                    {stat.value}
-                  </p>
-                  <p className="text-xs text-gray-400 mt-2">{stat.label}</p>
-                </motion.div>
+                <SpotlightCard className="rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:border-white/30 transition-all">
+                  <motion.div
+                    className="p-6 text-center"
+                    whileHover={{ scale: 1.05, y: -4 }}
+                  >
+                    <div className="text-3xl mb-2" aria-hidden="true">{stat.icon}</div>
+                    <p className="text-2xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text">
+                      {stat.value}
+                    </p>
+                    <p className="text-xs text-gray-400 mt-2">{stat.label}</p>
+                  </motion.div>
+                </SpotlightCard>
               </StaggerItem>
             ))}
           </div>
@@ -60,31 +95,33 @@ export function Achievements() {
                   transition={{ delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <motion.div
-                    className="p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:border-white/30 hover:bg-white/10 transition-all"
-                    whileHover={{ scale: 1.02, x: 4 }}
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 mt-1" aria-hidden="true">
-                        <motion.div
-                          className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-purple-600"
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        />
+                  <SpotlightCard className="rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:border-white/30 transition-all">
+                    <motion.div
+                      className="p-6"
+                      whileHover={{ scale: 1.01, x: 2 }}
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="flex-shrink-0 mt-1" aria-hidden="true">
+                          <motion.div
+                            className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-purple-600"
+                            animate={{ scale: [1, 1.2, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          />
+                        </div>
+                        <div className="flex-grow">
+                          <h3 className="text-lg font-bold text-white mb-1">
+                            {achievement.title}
+                          </h3>
+                          {achievement.date && (
+                            <p className="text-xs text-gray-500 mb-2">{achievement.date}</p>
+                          )}
+                          <p className="text-gray-300 text-sm mb-3">
+                            {achievement.description}
+                          </p>
+                        </div>
                       </div>
-                      <div className="flex-grow">
-                        <h3 className="text-lg font-bold text-white mb-1">
-                          {achievement.title}
-                        </h3>
-                        {achievement.date && (
-                          <p className="text-xs text-gray-500 mb-2">{achievement.date}</p>
-                        )}
-                        <p className="text-gray-300 text-sm mb-3">
-                          {achievement.description}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </SpotlightCard>
                 </StaggerItem>
               ))}
             </div>
