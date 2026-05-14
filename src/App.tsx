@@ -11,6 +11,7 @@ import { Achievements } from './sections/Achievements'
 import { Contact } from './sections/Contact'
 import { Footer } from './sections/Footer'
 import CustomCursor from './components/CustomCursor'
+import { GooeyFilter } from './components/GooeyFilter'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -36,6 +37,7 @@ function App() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
+            <GooeyFilter />
             <CustomCursor />
             <Navbar />
             <main>

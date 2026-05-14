@@ -44,12 +44,12 @@ export default function CustomCursor() {
   }
 
   return (
-    <>
+    <div className="fixed inset-0 pointer-events-none z-[9999]" style={{ filter: 'url(#gooey)' }}>
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full mix-blend-difference pointer-events-none z-[9999]"
+        className="absolute top-0 left-0 w-4 h-4 bg-white rounded-full mix-blend-difference"
         animate={{
-          x: mousePosition.x - 6,
-          y: mousePosition.y - 6,
+          x: mousePosition.x - 8,
+          y: mousePosition.y - 8,
           scale: isHovered ? 2.5 : 1,
         }}
         transition={{
@@ -60,7 +60,7 @@ export default function CustomCursor() {
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 border border-white/40 rounded-full mix-blend-difference pointer-events-none z-[9998]"
+        className="absolute top-0 left-0 w-8 h-8 bg-white/40 rounded-full mix-blend-difference"
         animate={{
           x: mousePosition.x - 16,
           y: mousePosition.y - 16,
@@ -73,6 +73,6 @@ export default function CustomCursor() {
           mass: 0.5,
         }}
       />
-    </>
+    </div>
   )
 }
