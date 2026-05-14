@@ -1,13 +1,15 @@
 import { motion } from 'framer-motion'
 import { TIMELINE_ITEMS } from '../data/experience'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
+import { DataStream } from '../components/DataStream'
 
 export function Experience() {
   return (
     <section id="experience" className="relative section-padding bg-gradient-to-b from-black via-black to-black overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 -z-10 opacity-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl" />
+      <DataStream />
+      <div className="absolute inset-0 -z-10 opacity-20">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-blue-600/10 rounded-full mix-blend-screen filter blur-[150px]" />
       </div>
 
       <div className="container-custom">
@@ -27,7 +29,7 @@ export function Experience() {
           {/* Timeline */}
           <div className="relative max-w-3xl mx-auto">
             {/* Vertical line */}
-            <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500/30 via-purple-500/30 to-transparent" />
+            <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500/50 via-purple-500/50 to-transparent shadow-[0_0_15px_rgba(59,130,246,0.3)]" />
 
             {/* Timeline items */}
             <div className="space-y-12">
