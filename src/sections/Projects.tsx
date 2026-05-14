@@ -6,6 +6,7 @@ import { StaggerContainer, StaggerItem } from '../animations/variants'
 import ProjectModal from '../components/ProjectModal'
 import { Project } from '../types'
 import { SplitText } from '../components/SplitText'
+import { LiquidImage } from '../components/LiquidImage'
 
 function TiltCard({ children, onClick, onKeyDown }: { children: React.ReactNode, onClick: () => void, onKeyDown: (e: any) => void }) {
   const x = useMotionValue(0)
@@ -162,7 +163,7 @@ export const Projects = memo(function Projects() {
                     {/* Image */}
                     <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-600/30 via-purple-600/20 to-pink-600/30 rounded-t-2xl">
                       {project.image ? (
-                        <img src={project.image} alt={project.title} loading="lazy" decoding="async" width={800} height={450} className="w-full h-full object-cover" />
+                        <LiquidImage src={project.image} alt={project.title} />
                       ) : (
                         <motion.div
                           className="absolute inset-0 flex items-center justify-center text-6xl opacity-20"

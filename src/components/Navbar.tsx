@@ -80,27 +80,27 @@ export const Navbar = memo(function Navbar() {
             </motion.div>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-1 lg:space-x-2" role="menubar">
+            <div className="hidden md:flex items-center space-x-1 lg:space-x-2 p-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md" role="menubar" style={{ filter: 'url(#gooey)' }}>
               {NAV_ITEMS.map((item) => (
                 <motion.button
                   key={item.id}
                   onClick={() => handleNavClick(item.href)}
                   className={cn(
-                    'relative px-3 py-2 text-sm font-medium transition-colors duration-200 rounded-md',
+                    'relative px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-full',
                     activeSection === item.id
-                      ? 'text-blue-400'
+                      ? 'text-white'
                       : 'text-gray-300 hover:text-white'
                   )}
-                  whileHover={{ y: -1 }}
+                  whileHover={{ scale: 1.05 }}
                   role="menuitem"
                   aria-current={activeSection === item.id ? 'page' : undefined}
                   id={`nav-item-${item.id}`}
                 >
-                  {item.label}
+                  <span className="relative z-10">{item.label}</span>
                   {activeSection === item.id && (
                     <motion.div
-                      className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-0.5 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full"
-                      layoutId="navbar-underline"
+                      className="absolute inset-0 bg-blue-600 rounded-full"
+                      layoutId="navbar-active-pill"
                       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                     />
                   )}
