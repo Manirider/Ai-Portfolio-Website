@@ -10,6 +10,7 @@ import { Projects } from './sections/Projects'
 import { Achievements } from './sections/Achievements'
 import { Contact } from './sections/Contact'
 import { Footer } from './sections/Footer'
+import CustomCursor from './components/CustomCursor'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
@@ -30,11 +31,12 @@ function App() {
           <Loader key="loader" />
         ) : (
           <motion.div
-            key="main"
+            key="main-content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           >
+            <CustomCursor />
             <Navbar />
             <main>
               <Hero />

@@ -124,6 +124,7 @@ export default {
     },
   },
   plugins: [
+    require('tailwindcss-animate'),
     require('tailwindcss/plugin')(({ matchUtilities, theme }) => {
       matchUtilities(
         {
