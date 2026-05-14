@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
+import { SplitText } from '../components/SplitText'
 
 export function About() {
   return (
@@ -61,16 +62,16 @@ export function About() {
               {/* Bio */}
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-white">Engineer & Problem Solver</h3>
-                <p className="text-gray-300 leading-relaxed mb-4">
-                  With a passion for building intelligent systems, I specialize in crafting solutions that combine
-                  cutting-edge AI/ML with robust software engineering principles. My journey has taken me through
-                  research, startups, and large-scale production systems.
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  I believe in writing clean, maintainable code and designing systems that scale. Whether it&apos;s
-                  training transformers, optimizing ML pipelines, or building full-stack applications, I approach
-                  every challenge with curiosity and precision.
-                </p>
+                <SplitText
+                  text="With a passion for building intelligent systems, I specialize in crafting solutions that combine cutting-edge AI/ML with robust software engineering principles. My journey has taken me through research, startups, and large-scale production systems."
+                  className="text-gray-300 leading-relaxed mb-4"
+                  delay={0.2}
+                />
+                <SplitText
+                  text="I believe in writing clean, maintainable code and designing systems that scale. Whether it's training transformers, optimizing ML pipelines, or building full-stack applications, I approach every challenge with curiosity and precision."
+                  className="text-gray-300 leading-relaxed"
+                  delay={0.6}
+                />
               </div>
 
               {/* Stats */}
