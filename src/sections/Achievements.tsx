@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ACHIEVEMENTS } from '../data/experience'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
 import { useRef, useState } from 'react'
