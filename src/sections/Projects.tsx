@@ -1,10 +1,73 @@
 import { useState, useRef, useEffect, memo } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { ExternalLink, Github } from 'lucide-react'
 import { PROJECTS, PROJECT_CATEGORIES } from '../data/projects'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
 import ProjectModal from '../components/ProjectModal'
 import { Project } from '../types'
+
+function TiltCard({ children, onClick, onKeyDown }: { children: React.ReactNode, onClick: () => void, onKeyDown: (e: any) => void }) {
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 30 })
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 30 })
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['7deg', '-7deg'])
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-7deg', '7deg'])
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+    const mouseX = e.clientX - rect.left
+    const mouseY = e.clientY - rect.top
+    const xPct = mouseX / width - 0.5
+    const yPct = mouseY / height - 0.5
+    x.set(xPct)
+    y.set(yPct)
+    
+    // Custom properties for gradient glow trail
+    e.currentTarget.style.setProperty('--mx', `${mouseX}px`)
+    e.currentTarget.style.setProperty('--my', `${mouseY}px`)
+  }
+
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    x.set(0)
+    y.set(0)
+    e.currentTarget.style.removeProperty('--mx')
+    e.currentTarget.style.removeProperty('--my')
+  }
+
+  return (
+    <motion.div
+      role="button"
+      tabIndex={0}
+      onClick={onClick}
+      onKeyDown={onKeyDown}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformStyle: 'preserve-3d',
+      }}
+      className="relative h-full rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 overflow-hidden hover:border-white/30 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer text-left group"
+      whileHover={{
+        z: 50,
+        boxShadow: '0 30px 60px rgba(59, 130, 246, 0.3)'
+      }}
+    >
+      <div style={{ left: 'var(--mx, -9999px)', top: 'var(--my, -9999px)', transform: 'translateZ(10px)' }} className="pointer-trail absolute w-64 h-64 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-screen">
+        <div className="w-full h-full rounded-full bg-gradient-to-tr from-blue-500/40 via-purple-500/30 to-transparent blur-[40px]" />
+      </div>
+      <div style={{ transform: 'translateZ(20px)', transformStyle: 'preserve-3d' }} className="h-full">
+        {children}
+      </div>
+    </motion.div>
+  )
+}
+
 
 export const Projects = memo(function Projects() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -82,21 +145,13 @@ export const Projects = memo(function Projects() {
               {filteredProjects.map((project, index) => (
                 <motion.div
                   key={project.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="project-card group h-full"
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                  transition={{ delay: index * 0.1, type: 'spring', stiffness: 200, damping: 20 }}
+                  className="h-full perspective-1000"
                 >
-                  <motion.div
-                    role="button"
-                    tabIndex={0}
-                    aria-label={`View details for ${project.title}`}
-                    className="relative h-full rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 overflow-hidden hover:border-white/30 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer text-left"
-                    whileHover={{
-                      y: -8,
-                      boxShadow: '0 20px 40px rgba(59, 130, 246, 0.2)'
-                    }}
+                  <TiltCard
                     onClick={() => setSelectedProject(project as Project)}
                     onKeyDown={(e) => {
                       if (e.key === 'Enter' || e.key === ' ') {
@@ -104,25 +159,9 @@ export const Projects = memo(function Projects() {
                         setSelectedProject(project as Project)
                       }
                     }}
-                    onMouseMove={(e) => {
-                      const el = e.currentTarget as HTMLElement
-                      const rect = el.getBoundingClientRect()
-                      const x = e.clientX - rect.left
-                      const y = e.clientY - rect.top
-                      el.style.setProperty('--mx', `${x}px`)
-                      el.style.setProperty('--my', `${y}px`)
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLElement
-                      el.style.removeProperty('--mx')
-                      el.style.removeProperty('--my')
-                    }}
                   >
-                    <div style={{ left: 'var(--mx, -9999px)', top: 'var(--my, -9999px)' }} className="pointer-trail absolute w-40 h-40 rounded-full -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-90 transition-opacity duration-200 pointer-events-none">
-                      <div className="w-full h-full rounded-full bg-gradient-to-tr from-blue-400/30 via-purple-400/20 to-transparent blur-2xl" />
-                    </div>
                     {/* Image */}
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-pink-500/30">
+                    <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-600/30 via-purple-600/20 to-pink-600/30 rounded-t-2xl">
                       {project.image ? (
                         <img src={project.image} alt={project.title} loading="lazy" decoding="async" width={800} height={450} className="w-full h-full object-cover" />
                       ) : (
@@ -220,7 +259,8 @@ export const Projects = memo(function Projects() {
                         </div>
                       )}
                     </div>
-                  </motion.div>
+                    </div>
+                  </TiltCard>
                 </motion.div>
               ))}
             </AnimatePresence>
