@@ -1,0 +1,96 @@
+import { motion } from 'framer-motion'
+import { ACHIEVEMENTS } from '../data/experience'
+import { StaggerContainer, StaggerItem } from '../animations/variants'
+
+export function Achievements() {
+  const stats = [
+    { label: 'Open Source Contributions', value: '200+', icon: '⭐' },
+    { label: 'Hackathon Wins', value: '5+', icon: '🏆' },
+    { label: 'Projects Shipped', value: '20+', icon: '🚀' },
+    { label: 'Active Developers', value: '10K+', icon: '👥' },
+  ]
+
+  return (
+    <section id="achievements" className="relative section-padding bg-gradient-to-b from-black to-black overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 -z-10 opacity-10">
+        <div className="absolute top-0 right-1/3 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl" />
+      </div>
+
+      <div className="container-custom">
+        <StaggerContainer>
+          {/* Section title */}
+          <StaggerItem className="text-center mb-16">
+            <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
+                Achievements & Impact
+              </span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              Milestones and recognition across my career
+            </p>
+          </StaggerItem>
+
+          {/* Stats grid */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+            {stats.map((stat, i) => (
+              <StaggerItem key={i}>
+                <motion.div
+                  className="p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 text-center hover:border-white/30 hover:bg-white/10 transition-all"
+                  whileHover={{ scale: 1.05, y: -4 }}
+                >
+                  <div className="text-3xl mb-2" aria-hidden="true">{stat.icon}</div>
+                  <p className="text-2xl font-bold text-transparent bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text">
+                    {stat.value}
+                  </p>
+                  <p className="text-xs text-gray-400 mt-2">{stat.label}</p>
+                </motion.div>
+              </StaggerItem>
+            ))}
+          </div>
+
+          {/* Achievements list */}
+          <div className="max-w-3xl mx-auto">
+            <div className="space-y-4">
+              {ACHIEVEMENTS.map((achievement, index) => (
+                <StaggerItem
+                  key={achievement.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <motion.div
+                    className="p-6 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 hover:border-white/30 hover:bg-white/10 transition-all"
+                    whileHover={{ scale: 1.02, x: 4 }}
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="flex-shrink-0 mt-1" aria-hidden="true">
+                        <motion.div
+                          className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-purple-600"
+                          animate={{ scale: [1, 1.2, 1] }}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        />
+                      </div>
+                      <div className="flex-grow">
+                        <h3 className="text-lg font-bold text-white mb-1">
+                          {achievement.title}
+                        </h3>
+                        {achievement.date && (
+                          <p className="text-xs text-gray-500 mb-2">{achievement.date}</p>
+                        )}
+                        <p className="text-gray-300 text-sm mb-3">
+                          {achievement.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </div>
+          </div>
+        </StaggerContainer>
+      </div>
+    </section>
+  )
+}
