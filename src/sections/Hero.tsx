@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Mail, LucideIcon } from 'lucide-react'
 import { ROLE_TITLES, SOCIAL_LINKS } from '../constants'
 import Scene3D from '../components/Scene3D'
+import { MagneticButton } from '../components/MagneticButton'
 
 const socialIconMap: Record<string, LucideIcon> = {
   github: Github,
@@ -94,31 +95,35 @@ export const Hero = memo(function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.6 }}
           >
-            <motion.a
-              href="#projects"
-              className="group px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-700 text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.6)] transition-all relative overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              id="hero-cta-projects"
-            >
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative z-10 flex items-center gap-2">
-                Explore Projects
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
-              </span>
-            </motion.a>
+            <MagneticButton>
+              <motion.a
+                href="#projects"
+                className="group px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-700 text-white font-semibold flex items-center justify-center gap-2 hover:shadow-[0_0_40px_-10px_rgba(59,130,246,0.6)] transition-all relative overflow-hidden"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                id="hero-cta-projects"
+              >
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <span className="relative z-10 flex items-center gap-2">
+                  Explore Projects
+                  <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                </span>
+              </motion.a>
+            </MagneticButton>
 
-            <motion.a
-              href="/resume.pdf"
-              download
-              className="px-8 py-4 rounded-xl border border-white/20 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/40 transition-all backdrop-blur-md"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              id="hero-cta-resume"
-            >
-              <Download size={20} aria-hidden="true" />
-              Resume
-            </motion.a>
+            <MagneticButton>
+              <motion.a
+                href="/resume.pdf"
+                download
+                className="px-8 py-4 rounded-xl border border-white/20 text-white font-semibold flex items-center justify-center gap-2 hover:bg-white/10 hover:border-white/40 transition-all backdrop-blur-md"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                id="hero-cta-resume"
+              >
+                <Download size={20} aria-hidden="true" />
+                Resume
+              </motion.a>
+            </MagneticButton>
           </motion.div>
 
           {/* Social Links — proper icons */}
