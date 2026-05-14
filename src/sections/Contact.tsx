@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Send, Mail, MessageSquare } from 'lucide-react'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
+import { SplitText } from '../components/SplitText'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -44,9 +45,7 @@ export function Contact() {
           {/* Section title */}
           <StaggerItem className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                Get in Touch
-              </span>
+              <SplitText text="Get in Touch" className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent inline-block" />
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Let&apos;s collaborate and build something amazing together

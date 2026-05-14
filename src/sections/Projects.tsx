@@ -5,6 +5,7 @@ import { PROJECTS, PROJECT_CATEGORIES } from '../data/projects'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
 import ProjectModal from '../components/ProjectModal'
 import { Project } from '../types'
+import { SplitText } from '../components/SplitText'
 
 function TiltCard({ children, onClick, onKeyDown }: { children: React.ReactNode, onClick: () => void, onKeyDown: (e: any) => void }) {
   const x = useMotionValue(0)
@@ -110,9 +111,7 @@ export const Projects = memo(function Projects() {
           {/* Section title */}
           <StaggerItem className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
-              <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
-                Featured Projects
-              </span>
+              <SplitText text="Featured Projects" className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent inline-block" />
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
               Showcase of my recent work across AI/ML, Web3, and full stack development
