@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
 import { SplitText } from '../components/SplitText'
+import { TechCloud } from '../components/TechCloud'
 
 export function About() {
   return (
@@ -29,31 +30,16 @@ export function About() {
             {/* Left: Image */}
             <StaggerItem>
               <motion.div
-                className="relative group"
-                whileHover={{ scale: 1.02 }}
+                className="relative group h-full flex items-center justify-center"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
               >
-                {/* Glow effect */}
-                <motion.div
-                  className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  animate={{ opacity: [0.3, 0.6, 0.3] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                />
-
-                {/* Image placeholder */}
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-gradient-to-br from-white/5 to-white/2">
-                  <div className="aspect-square bg-gradient-to-br from-blue-500/30 via-purple-500/20 to-pink-500/30 flex items-center justify-center">
-                    <div className="text-9xl font-bold text-white/10">
-                      👨‍💻
-                    </div>
-                  </div>
-
-                  {/* Overlay text */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-center text-white font-semibold">
-                      Manikanta<br />AI/ML Engineer
-                    </p>
-                  </div>
-                </div>
+                {/* 3D Tech Cloud */}
+                <TechCloud />
+                
+                {/* Decorative background glow */}
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 blur-[100px] rounded-full" />
               </motion.div>
             </StaggerItem>
 
