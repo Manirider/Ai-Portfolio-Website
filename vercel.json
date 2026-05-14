@@ -1,5 +1,5 @@
 {
-  "name": "manikanta-portfolio",
+  "name": "Manikanta Suryasai Sunkara-portfolio",
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install --legacy-peer-deps",

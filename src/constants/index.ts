@@ -12,19 +12,19 @@ export const NAV_ITEMS: NavItem[] = [
 export const SOCIAL_LINKS: SocialLink[] = [
   {
     name: 'GitHub',
-    url: 'https://github.com',
+    url: 'https://github.com/Manirider',
     icon: 'github',
     label: 'Visit GitHub profile',
   },
   {
     name: 'LinkedIn',
-    url: 'https://linkedin.com',
+    url: 'https://www.linkedin.com/in/manikanta-suryasai-sunkara-60955b27b',
     icon: 'linkedin',
     label: 'Visit LinkedIn profile',
   },
   {
     name: 'Email',
-    url: 'mailto:manikanta@example.com',
+    url: 'mailto:smanikanta713@gmail.com',
     icon: 'mail',
     label: 'Send an email',
   },
@@ -42,6 +42,7 @@ export const HERO_ROLES = [
   'Crafting elegant solutions',
   'Scaling machine learning',
   'Pushing technology forward',
+  'Always eager to learn new things'
 ]
 
 export const RESUME_URL = '/resume.pdf'

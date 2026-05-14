@@ -60,8 +60,8 @@ export function Contact() {
                 {
                   icon: Mail,
                   label: 'Email',
-                  value: 'manikanta@example.com',
-                  href: 'mailto:manikanta@example.com',
+                  value: 'smanikanta713@gmail.com',
+                  href: 'mailto:smanikanta713@gmail.com',
                 },
                 {
                   icon: MessageSquare,
