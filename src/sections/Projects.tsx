@@ -259,7 +259,6 @@ export const Projects = memo(function Projects() {
                         </div>
                       )}
                     </div>
-                    </div>
                   </TiltCard>
                 </motion.div>
               ))}
