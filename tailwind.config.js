@@ -39,7 +39,7 @@ export default {
         ring: 'hsl(var(--ring))',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Geist', 'system-ui', 'sans-serif'],
         grotesk: ['Space Grotesk', 'sans-serif'],
       },
       fontSize: {

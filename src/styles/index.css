@@ -10,8 +10,8 @@
   }
 
   body {
-    @apply bg-black text-white antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    @apply bg-black text-[#ededed] antialiased;
+    font-family: 'Geist', system-ui, sans-serif;
     position: relative;
   }
 

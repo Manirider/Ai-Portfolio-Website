@@ -33,11 +33,14 @@ function App() {
         {!isLoading && (
           <motion.div
             key="main-content"
-            className="min-h-screen bg-black text-white"
+            className="min-h-screen bg-black text-[#ededed]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
+            {/* Global Advanced Animation Background */}
+            <div className="fixed inset-0 z-[-1] animated-grid opacity-[0.03] pointer-events-none" />
+            
             <Navbar />
             <main>
               <Hero />
