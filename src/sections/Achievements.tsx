@@ -38,10 +38,10 @@ function SpotlightCard({ children, className = '' }: { children: React.ReactNode
 
 export function Achievements() {
   const stats = [
-    { label: 'Open Source Contributions', value: '200+', icon: '⭐' },
-    { label: 'Hackathon Wins', value: '5+', icon: '🏆' },
-    { label: 'Projects Shipped', value: '20+', icon: '🚀' },
-    { label: 'Active Developers', value: '10K+', icon: '👥' },
+    { label: 'GitHub Repositories', value: '30+', icon: '💻' },
+    { label: 'Certifications', value: '15+', icon: '📜' },
+    { label: 'Effort Reduced', value: '60%', icon: '⚡' },
+    { label: 'Ecosystems Built', value: '1+', icon: '🚀' },
   ]
 
   return (

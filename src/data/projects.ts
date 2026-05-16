@@ -96,7 +96,7 @@ export const PROJECTS: Project[] = [
     category: 'Automation',
     description: 'Developed enterprise workflow automation systems using SharePoint and Power Automate to streamline approvals, notifications, and operational processes.',
     longDescription: 'Highlights:\n• Leave approval automation\n• Email notification workflows\n• Dashboard integration\n• Attendance and student workflow integration',
-    image: '/projects/ai-assistant.svg',
+    image: '/projects/automation.svg',
     technologies: ['SharePoint', 'Power Automate', 'Excel'],
     links: {
       github: 'https://github.com/Manirider',
@@ -104,6 +104,42 @@ export const PROJECTS: Project[] = [
     metrics: [
       { label: 'Effort', value: '-60%' },
       { label: 'Tracking', value: 'Auto' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'multimodal-ai-assistant',
+    title: 'Multimodal AI Assistant',
+    category: 'AI/ML',
+    description: 'Built an intelligent multimodal AI assistant capable of processing text, image, and audio inputs to deliver context-aware responses and task automation.',
+    longDescription: 'Highlights:\n• Multi-input processing (text, image, audio)\n• Context-aware response generation\n• Task automation workflows\n• Conversational memory management\n• Extensible plugin architecture',
+    image: '/projects/ai-assistant.svg',
+    technologies: ['Python', 'FastAPI', 'TensorFlow', 'LangChain', 'React', 'WebSockets'],
+    links: {
+      github: 'https://github.com/Manirider',
+    },
+    metrics: [
+      { label: 'Modalities', value: '3' },
+      { label: 'Response', value: '<2s' },
+      { label: 'Accuracy', value: '92%' },
+    ],
+    featured: true,
+  },
+  {
+    id: 'flight-booking-system',
+    title: 'Flight Booking System',
+    category: 'Full Stack',
+    description: 'Full-stack flight booking and reservation system with real-time search, seat selection, and payment integration.',
+    longDescription: 'Highlights:\n• Real-time flight search & filtering\n• Interactive seat selection interface\n• Booking management dashboard\n• Payment gateway integration\n• Admin analytics panel',
+    image: '/projects/flight-booking.svg',
+    technologies: ['Java', 'Spring Boot', 'React', 'PostgreSQL', 'REST APIs', 'Docker'],
+    links: {
+      github: 'https://github.com/Manirider',
+    },
+    metrics: [
+      { label: 'Routes', value: '500+' },
+      { label: 'Stack', value: 'Full' },
+      { label: 'Uptime', value: '99.9%' },
     ],
     featured: true,
   },
@@ -115,5 +151,6 @@ export const PROJECT_CATEGORIES = [
   'Blockchain',
   'MLOps',
   'Security',
-  'Automation'
+  'Automation',
+  'Full Stack',
 ]

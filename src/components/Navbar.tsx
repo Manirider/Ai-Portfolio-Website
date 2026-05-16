@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_ITEMS, SOCIAL_LINKS } from '../constants'
 import { useScrollPosition, useActiveSection } from '../hooks'
 import { cn } from '../utils/helpers'
+import { MagneticButton } from './MagneticButton'
 
 const socialIcons: Record<string, LucideIcon> = {
   github: Github,
@@ -129,17 +130,19 @@ export const Navbar = memo(function Navbar() {
                 )
               })}
 
-              <motion.a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium hover:shadow-glow transition-shadow"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                id="nav-resume-btn"
-              >
-                Resume
-              </motion.a>
+              <MagneticButton>
+                <motion.a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-medium hover:shadow-glow transition-shadow block"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  id="nav-resume-btn"
+                >
+                  Resume
+                </motion.a>
+              </MagneticButton>
             </div>
 
             {/* Mobile Menu Button */}

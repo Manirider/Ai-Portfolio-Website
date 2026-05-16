@@ -1,71 +1,42 @@
-# Manikanta's Portfolio
+# Manikanta Suryasai Sunkara — Portfolio
 
-An elite, production-grade portfolio website built with modern web technologies. Designed to impress recruiters and showcase engineering excellence.
+> Building AI-powered systems with scalable engineering.
+
+A cinematic, production-grade portfolio built with React, Three.js, and modern web technologies. Designed to showcase AI/ML engineering, full-stack development, and blockchain projects with an immersive 3D experience.
+
+---
 
 ## ✨ Features
 
-- **Cinematic UI**: Premium animations and interactions powered by Framer Motion and GSAP
-- **Responsive Design**: Mobile-first approach with support for all screen sizes
-- **Performance Optimized**: Lighthouse scores targeting 95+ across all metrics
-- **Accessibility**: WCAG compliant with keyboard navigation and reduced motion support
-- **SEO Ready**: Full semantic HTML, meta tags, and structured data
-- **Dark Mode First**: Premium dark theme with glassmorphism effects
-- **Production Ready**: TypeScript, clean architecture, scalable components
+- **Cinematic Loader** — Animated intro with gradient glow and loading bar
+- **3D Hero Scene** — Particle galaxy, neural network visualization, animated grid floor, floating distorted spheres
+- **Profile Image** — Gradient-bordered photo with cinematic hover effects
+- **Skills Showcase** — Filterable skill categories with animated level bars
+- **Experience Timeline** — Color-coded badges (Education / Experience / Achievement) with alternating layout
+- **Featured Projects** — 8 projects with 3D tilt cards, cursor-following glow, and detailed modals
+- **Achievements & Impact** — Animated stat counters with spotlight hover cards
+- **Contact Form** — Glassmorphic form with smooth focus animations
+- **Smooth Scrolling** — Lenis + GSAP ScrollTrigger integration
+- **Fully Responsive** — Mobile, tablet, desktop, and ultrawide support
+- **Accessibility** — ARIA labels, focus management, keyboard navigation, reduced-motion support
 
-## 🚀 Tech Stack
+## 🛠 Tech Stack
 
-**Frontend:**
-- React 18 + Vite
-- TypeScript
-- Tailwind CSS
+| Category | Technologies |
+|----------|-------------|
+| **Core** | React 18, TypeScript, Vite |
+| **3D/WebGL** | Three.js, React Three Fiber, Drei |
+| **Animation** | Framer Motion, GSAP, ScrollTrigger, Lenis |
+| **Styling** | Tailwind CSS, CSS Variables, Custom Shaders |
+| **Utilities** | clsx, tailwind-merge, class-variance-authority |
+| **Icons** | Lucide React, Iconify |
+| **Interaction** | react-intersection-observer, Splitting.js, Shery.js |
 
-**Animations:**
-- Framer Motion
-- GSAP + ScrollTrigger
-- React Scroll Parallax
-
-**UI Components:**
-- shadcn/ui patterns
-- Custom animations
-- Lucide React icons
-
-**Deployment:**
-- Vercel
-
-## 📁 Project Structure
-
-```
-src/
-├── animations/       # Animation variants and wrappers
-├── components/       # Reusable components (Navbar, etc.)
-├── constants/        # App constants and configuration
-├── data/            # Data files (projects, skills, experience)
-├── hooks/           # Custom React hooks
-├── sections/        # Page sections (Hero, About, Projects, etc.)
-├── styles/          # Global styles and CSS
-├── types/           # TypeScript type definitions
-├── utils/           # Utility functions
-└── App.tsx          # Root component
-```
-
-## 🛠 Getting Started
-
-### Prerequisites
-- Node.js 18+
-- npm or yarn
-
-### Installation
+## 🚀 Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/portfolio
-cd portfolio
-
 # Install dependencies
 npm install
-
-# Copy environment variables
-cp .env.example .env.local
 
 # Start development server
 npm run dev
@@ -77,122 +48,40 @@ npm run build
 npm run preview
 ```
 
-## 📸 Screenshots
+## 📁 Project Structure
 
-> **Note**: Add your final cinematic screenshots here before public release!
-
-<div align="center">
-  <img src="path/to/hero.png" alt="Hero Section" width="400" />
-  <img src="path/to/projects.png" alt="Projects Section" width="400" />
-</div>
-
-## 📊 Performance (Lighthouse Report)
-
-Our production build achieves elite scoring on Lighthouse:
-- **Best Practices**: 100/100
-- **Accessibility**: 96/100
-- **SEO**: 92/100
-- **Performance**: Highly optimized (scales to 95+ with CDN edge caching & image compression)
-
-## ♿ Accessibility
-
-- Semantic HTML structure
-- ARIA labels and roles
-- Keyboard navigation support
-- Focus states for all interactive elements
-- Reduced motion media query support
-- High contrast ratios (WCAG AA compliant)
-
-## 🌐 Sections
-
-1. **Loader**: Cinematic intro animation (1.5-2 seconds)
-2. **Navbar**: Sticky navigation with active section tracking
-3. **Hero**: Animated introduction with rotating roles
-4. **About**: Bio with stats and personality
-5. **Skills**: Categorized technical skills with proficiency levels
-6. **Experience**: Timeline of education, experience, and achievements
-7. **Projects**: Filtered project showcase with live demos
-8. **Achievements**: Milestones and recognition
-9. **Contact**: Contact form with validation
-10. **Footer**: Navigation and social links
-
-## 📝 Content
-
-Update the following files to customize content:
-
-- `src/constants/index.ts` - Navigation, roles, social links
-- `src/data/projects.ts` - Featured projects
-- `src/data/skills.ts` - Technical skills
-- `src/data/experience.ts` - Timeline items
-- `src/sections/*.tsx` - Section content
-
-## 🎨 Customization
-
-### Colors
-Edit `tailwind.config.js` to customize colors and gradients.
-
-### Fonts
-Google Fonts integration:
-- **Inter**: Body text
-- **Space Grotesk**: Headings
-
-### Animations
-Modify animation variants in `src/animations/variants.tsx` or individual components.
-
-## 🚀 Deployment
-
-### Deploy to Vercel
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
+```
+src/
+├── animations/    # Framer Motion variants and wrappers
+├── assets/        # Static assets
+├── components/    # Reusable UI components (Scene3D, Navbar, TiltCard, etc.)
+├── constants/     # App-wide constants (nav items, social links, roles)
+├── data/          # Data files (projects, skills, experience)
+├── hooks/         # Custom React hooks
+├── layouts/       # Layout components
+├── lib/           # GSAP effects, scroll initialization
+├── sections/      # Page sections (Hero, About, Skills, etc.)
+├── styles/        # Global CSS and design tokens
+├── types/         # TypeScript type definitions
+├── utils/         # Helper utilities
+├── App.tsx        # Root component with loader + lazy loading
+└── main.tsx       # Entry point
 ```
 
-### Environment Variables
+## 📊 Performance
 
-Required for contact form:
-```
-VITE_EMAILJS_SERVICE_ID=your_service_id
-VITE_EMAILJS_TEMPLATE_ID=your_template_id
-VITE_EMAILJS_PUBLIC_KEY=your_public_key
-```
+- **Code Splitting** — All below-the-fold sections are lazy-loaded
+- **GPU Acceleration** — Animations use only `transform` and `opacity`
+- **Image Optimization** — SVG project thumbnails, lazy loading
+- **Reduced Motion** — Full `prefers-reduced-motion` support
+- **Font Loading** — Preloaded critical fonts (Inter, Space Grotesk)
 
-## 📱 Browser Support
+## 👤 Contact
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these guidelines:
-
-1. Create a feature branch (`git checkout -b feature/amazing-feature`)
-2. Commit changes (`git commit -m 'Add amazing feature'`)
-3. Push to branch (`git push origin feature/amazing-feature`)
-4. Open a Pull Request
+- **GitHub**: [github.com/Manirider](https://github.com/Manirider)
+- **LinkedIn**: [Manikanta Suryasai Sunkara](https://www.linkedin.com/in/manikanta-suryasai-sunkara-60955b27b/)
+- **Email**: smanikanta713@gmail.com
 
 ## 📄 License
 
-This project is open source and available under the MIT License.
-
-## 👨‍💻 Author
-
-**Manikanta Suryasai Sunkara**
-- GitHub: [@username](https://github.com)
-- LinkedIn: [@username](https://linkedin.com)
-- Email: manikanta@example.com
-
-## 🙏 Acknowledgments
-
-- Inspired by award-winning portfolio sites
-- Built with modern development best practices
-- Special thanks to the React and Framer Motion communities
-
----
-
-Built with ❤️ and ☕ by Manikanta Suryasai Sunkara
+MIT © Manikanta Suryasai Sunkara

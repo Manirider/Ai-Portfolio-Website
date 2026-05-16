@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { Send, Mail, MessageSquare } from 'lucide-react'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
 import { SplitText } from '../components/SplitText'
+import { MagneticButton } from '../components/MagneticButton'
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -153,35 +154,37 @@ export function Contact() {
                 </div>
 
                 {/* Submit button */}
-                <motion.button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold flex items-center justify-center gap-2 hover:shadow-glow transition-all disabled:opacity-50"
-                  whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <motion.span
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity }}
-                      >
-                        ⏳
-                      </motion.span>
-                      Sending...
-                    </>
-                  ) : submitted ? (
-                    <>
-                      <span>✓</span>
-                      Message sent!
-                    </>
-                  ) : (
-                    <>
-                      <Send size={20} />
-                      Send Message
-                    </>
-                  )}
-                </motion.button>
+                <MagneticButton>
+                  <motion.button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold flex items-center justify-center gap-2 hover:shadow-glow transition-all disabled:opacity-50"
+                    whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <motion.span
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity }}
+                        >
+                          ⏳
+                        </motion.span>
+                        Sending...
+                      </>
+                    ) : submitted ? (
+                      <>
+                        <span>✓</span>
+                        Message sent!
+                      </>
+                    ) : (
+                      <>
+                        <Send size={20} />
+                        Send Message
+                      </>
+                    )}
+                  </motion.button>
+                </MagneticButton>
               </motion.form>
             </StaggerItem>
           </div>

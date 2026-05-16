@@ -61,7 +61,16 @@ export function Experience() {
                         whileHover={{ scale: 1.02, y: -4 }}
                       >
                         {/* Date */}
-                        <div className={`flex items-center gap-2 mb-3 md:justify-end ${index % 2 !== 0 ? 'md:justify-start' : ''}`}>
+                        <div className={`flex items-center gap-2 mb-3 flex-wrap md:justify-end ${index % 2 !== 0 ? 'md:justify-start' : ''}`}>
+                          <span className={`text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full border ${
+                            item.type === 'education'
+                              ? 'text-blue-300 bg-blue-500/10 border-blue-500/20'
+                              : item.type === 'experience'
+                              ? 'text-purple-300 bg-purple-500/10 border-purple-500/20'
+                              : 'text-pink-300 bg-pink-500/10 border-pink-500/20'
+                          }`}>
+                            {item.type}
+                          </span>
                           <span className={`text-sm font-semibold ${
                             item.type === 'education'
                               ? 'text-blue-400'
@@ -70,7 +79,7 @@ export function Experience() {
                               : 'text-pink-400'
                           }`}>
                             {item.date}
-                            {item.dateEnd && ` - ${item.dateEnd}`}
+                            {item.dateEnd && ` – ${item.dateEnd}`}
                           </span>
                         </div>
 

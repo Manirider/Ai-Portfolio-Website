@@ -40,7 +40,7 @@ export interface TimelineItem {
   date: string
   dateEnd?: string
   title: string
-  organization: string
+  organization?: string
   description: string
   type: 'education' | 'experience' | 'achievement'
   details?: string[]

@@ -35,6 +35,7 @@ export const ROLE_TITLES = [
   'Full Stack Developer',
   'MLOps Engineer',
   'Blockchain Developer',
+  'Intelligent Systems Builder',
 ]
 
 export const HERO_ROLES = [

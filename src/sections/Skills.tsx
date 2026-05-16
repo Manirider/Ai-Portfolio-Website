@@ -1,7 +1,13 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { SKILLS } from '../data/skills'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
+
+const levelConfig = {
+  expert: { width: '100%', color: 'from-blue-400 to-purple-500', label: 'Expert' },
+  advanced: { width: '75%', color: 'from-blue-400 to-cyan-400', label: 'Advanced' },
+  intermediate: { width: '50%', color: 'from-blue-400 to-blue-300', label: 'Intermediate' },
+}
 
 export function Skills() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
@@ -65,56 +71,67 @@ export function Skills() {
           </StaggerItem>
 
           {/* Skills grid */}
-          <div className="space-y-8">
-            {filteredSkills.map((skillGroup, groupIdx) => (
-              <motion.div
-                key={skillGroup.category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: groupIdx * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <h3 className="text-xl font-semibold mb-6 text-white">{skillGroup.category}</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                  {skillGroup.items.map((skill, itemIdx) => (
-                    <motion.div
-                      key={skill.name}
-                      className="group relative"
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ delay: (groupIdx * 0.1) + (itemIdx * 0.03) }}
-                      viewport={{ once: true }}
-                    >
-                      <motion.div
-                        className="p-4 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 text-center cursor-pointer hover:border-white/30 hover:bg-white/10 transition-all"
-                        whileHover={{ scale: 1.1, y: -4 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <div className="text-2xl mb-2">
-                          {skill.level === 'expert' && '⭐⭐⭐'}
-                          {skill.level === 'advanced' && '⭐⭐'}
-                          {skill.level === 'intermediate' && '⭐'}
-                          {!skill.level && '◆'}
-                        </div>
-                        <p className="font-medium text-white group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-600 group-hover:bg-clip-text transition-all">
-                          {skill.name}
-                        </p>
-                        {skill.level && (
-                          <p className="text-xs text-gray-500 mt-2 capitalize">{skill.level}</p>
-                        )}
-                      </motion.div>
+          <div className="space-y-10">
+            <AnimatePresence mode="wait">
+              {filteredSkills.map((skillGroup, groupIdx) => (
+                <motion.div
+                  key={skillGroup.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ delay: groupIdx * 0.08 }}
+                >
+                  <h3 className="text-xl font-semibold mb-6 text-white flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-gradient-to-r from-blue-400 to-purple-500" />
+                    {skillGroup.category}
+                    <span className="text-xs text-gray-500 font-normal ml-auto">{skillGroup.items.length} skills</span>
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {skillGroup.items.map((skill, itemIdx) => {
+                      const level = skill.level ? levelConfig[skill.level] : levelConfig.intermediate
+                      return (
+                        <motion.div
+                          key={skill.name}
+                          className="group relative"
+                          initial={{ opacity: 0, scale: 0.95 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: (groupIdx * 0.05) + (itemIdx * 0.03) }}
+                          viewport={{ once: true }}
+                        >
+                          <motion.div
+                            className="p-4 rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-white/[0.01] hover:border-white/25 hover:bg-white/[0.06] transition-all"
+                            whileHover={{ y: -2 }}
+                          >
+                            <div className="flex items-center justify-between mb-3">
+                              <p className="font-medium text-white text-sm group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-purple-500 group-hover:bg-clip-text transition-all">
+                                {skill.name}
+                              </p>
+                              <span className="text-[10px] text-gray-500 uppercase tracking-wider font-medium">
+                                {level.label}
+                              </span>
+                            </div>
 
-                      {/* Glow on hover */}
-                      <motion.div
-                        className="absolute -inset-2 bg-gradient-to-r from-blue-600/50 to-purple-600/50 rounded-xl blur opacity-0 group-hover:opacity-20 -z-10 transition-opacity"
-                        animate={{ opacity: 0 }}
-                        whileHover={{ opacity: 0.2 }}
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+                            {/* Level bar */}
+                            <div className="h-1 rounded-full bg-white/[0.06] overflow-hidden">
+                              <motion.div
+                                className={`h-full rounded-full bg-gradient-to-r ${level.color}`}
+                                initial={{ width: 0 }}
+                                whileInView={{ width: level.width }}
+                                transition={{ duration: 1, delay: 0.2 + itemIdx * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+                                viewport={{ once: true }}
+                              />
+                            </div>
+                          </motion.div>
+
+                          {/* Glow on hover */}
+                          <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30 rounded-xl blur opacity-0 group-hover:opacity-15 -z-10 transition-opacity" />
+                        </motion.div>
+                      )
+                    })}
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </StaggerContainer>
       </div>

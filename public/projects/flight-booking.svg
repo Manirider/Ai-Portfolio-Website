@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c1222"/>
+      <stop offset="100%" style="stop-color:#1a1035"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <path d="M300 200 L400 140 L500 200 L500 280 L400 340 L300 280 Z" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.4"/>
+  <path d="M330 210 L400 165 L470 210 L470 270 L400 315 L330 270 Z" fill="none" stroke="url(#accent)" stroke-width="1.5" opacity="0.3"/>
+  <text x="400" y="250" text-anchor="middle" fill="white" font-size="22" font-family="monospace" opacity="0.8">✈️</text>
+  <text x="400" y="380" text-anchor="middle" fill="white" font-size="16" font-family="sans-serif" opacity="0.6">Flight Booking System</text>
+  <rect x="250" y="400" width="300" height="4" rx="2" fill="url(#accent)" opacity="0.3"/>
+</svg>

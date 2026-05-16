@@ -23,6 +23,7 @@ export default defineConfig({
         manualChunks: {
           'vendor': ['react', 'react-dom'],
           'animations': ['framer-motion', 'gsap'],
+          'three-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
           'ui': ['lucide-react', '@iconify/react'],
         },
       },

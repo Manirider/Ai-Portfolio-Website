@@ -32,7 +32,7 @@ export function Footer() {
               MS
             </motion.h3>
             <p className="text-gray-400 text-sm">
-              Crafting intelligent solutions through code and innovation.
+              Building AI-powered systems with scalable engineering.
             </p>
           </motion.div>
 
@@ -68,7 +68,7 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-2">
               {[
-                { label: 'GitHub', href: 'https://github.com' },
+                { label: 'GitHub', href: 'https://github.com/Manirider' },
                 { label: 'Resume', href: '/resume.pdf' },
                 { label: 'Blog', href: '#' },
               ].map((item, i) => (

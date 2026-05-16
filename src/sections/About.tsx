@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { StaggerContainer, StaggerItem } from '../animations/variants'
 import { SplitText } from '../components/SplitText'
-import { TechCloud } from '../components/TechCloud'
 
 export function About() {
   return (
@@ -21,13 +20,13 @@ export function About() {
               </span>
             </h2>
             <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              A passionate engineer building intelligent systems
+              Engineering intelligent products with AI, MLOps, and Web3.
             </p>
           </StaggerItem>
 
           {/* Content grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Image */}
+            {/* Left: Profile Image */}
             <StaggerItem>
               <motion.div
                 className="relative group h-full flex items-center justify-center"
@@ -35,11 +34,24 @@ export function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                {/* 3D Tech Cloud */}
-                <TechCloud />
+                {/* Gradient ring wrapper */}
+                <motion.div
+                  className="relative rounded-2xl p-[3px] bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                >
+                  <div className="rounded-2xl overflow-hidden bg-black">
+                    <img
+                      src="/profile.png"
+                      alt="Manikanta Suryasai Sunkara"
+                      className="w-full max-w-[400px] h-auto object-cover rounded-2xl grayscale-[20%] group-hover:grayscale-0 transition-all duration-500"
+                      loading="lazy"
+                    />
+                  </div>
+                </motion.div>
                 
                 {/* Decorative background glow */}
-                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/10 via-purple-600/10 to-pink-600/10 blur-[100px] rounded-full" />
+                <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 blur-[80px] rounded-full" />
               </motion.div>
             </StaggerItem>
 
@@ -47,14 +59,14 @@ export function About() {
             <StaggerItem className="space-y-6">
               {/* Bio */}
               <div>
-                <h3 className="text-2xl font-bold mb-4 text-white">Engineer & Problem Solver</h3>
+                <h3 className="text-2xl font-bold mb-4 text-white">AI/ML Engineer & Full Stack Developer</h3>
                 <SplitText
-                  text="With a passion for building intelligent systems, I specialize in crafting solutions that combine cutting-edge AI/ML with robust software engineering principles. My journey has taken me through research, startups, and large-scale production systems."
+                  text="I am an AI/ML Engineer and Full Stack Developer focused on building production-grade intelligent systems, scalable backend architectures, and immersive digital experiences. My work spans across AI/ML, MLOps, Full Stack Development, Blockchain, and Enterprise Automation systems."
                   className="text-gray-300 leading-relaxed mb-4"
                   delay={0.2}
                 />
                 <SplitText
-                  text="I believe in writing clean, maintainable code and designing systems that scale. Whether it's training transformers, optimizing ML pipelines, or building full-stack applications, I approach every challenge with curiosity and precision."
+                  text="Currently pursuing B.Tech in AI & ML at Aditya College, I actively build real-world systems involving NLP, MLOps pipelines, semantic search, smart contract security, and decentralized governance platforms. I enjoy combining engineering, system design, and product thinking to create impactful software solutions that feel modern, scalable, and user-centric."
                   className="text-gray-300 leading-relaxed"
                   delay={0.6}
                 />
@@ -63,9 +75,9 @@ export function About() {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { label: 'Projects', value: '20+' },
-                  { label: 'Experience', value: '5yrs' },
-                  { label: 'Languages', value: '8+' },
+                  { label: 'GitHub Repos', value: '30+' },
+                  { label: 'Certifications', value: '15+' },
+                  { label: 'Languages', value: '6+' },
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
@@ -83,10 +95,10 @@ export function About() {
               {/* Key values */}
               <div className="space-y-3 pt-4">
                 {[
-                  'Passionate about AI/ML and emerging technologies',
-                  'Focused on building scalable and maintainable systems',
-                  'Strong advocate for clean code and best practices',
-                  'Always learning and staying updated with tech trends',
+                  'Building AI-powered systems with scalable engineering',
+                  'Core EDC member mentoring juniors and startup ideas',
+                  'Awarded for Smart Transportation Prototype',
+                  'Developing "Life OS" startup ecosystem',
                 ].map((value, i) => (
                   <motion.div
                     key={i}

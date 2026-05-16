@@ -1,60 +1,64 @@
-import { useEffect, useState } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Navbar } from './components/Navbar'
 import { Loader } from './sections/Loader'
+import { Navbar } from './components/Navbar'
 import { Hero } from './sections/Hero'
-import { About } from './sections/About'
-import { Skills } from './sections/Skills'
-import { Experience } from './sections/Experience'
-import { Projects } from './sections/Projects'
-import { Achievements } from './sections/Achievements'
-import { Contact } from './sections/Contact'
-import { Footer } from './sections/Footer'
-import CustomCursor from './components/CustomCursor'
-import { GooeyFilter } from './components/GooeyFilter'
+
+// Lazy load below-the-fold sections for better LCP
+const About = lazy(() => import('./sections/About').then(m => ({ default: m.About })))
+const Skills = lazy(() => import('./sections/Skills').then(m => ({ default: m.Skills })))
+const Experience = lazy(() => import('./sections/Experience').then(m => ({ default: m.Experience })))
+const Projects = lazy(() => import('./sections/Projects').then(m => ({ default: m.Projects })))
+const Achievements = lazy(() => import('./sections/Achievements').then(m => ({ default: m.Achievements })))
+const Contact = lazy(() => import('./sections/Contact').then(m => ({ default: m.Contact })))
+const Footer = lazy(() => import('./sections/Footer').then(m => ({ default: m.Footer })))
 
 function App() {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulate loader
     const timer = setTimeout(() => {
       setIsLoading(false)
-    }, 2000)
-
+    }, 2500)
     return () => clearTimeout(timer)
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <>
       <AnimatePresence mode="wait">
-        {isLoading ? (
-          <Loader key="loader" />
-        ) : (
+        {isLoading && <Loader key="loader" />}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {!isLoading && (
           <motion.div
             key="main-content"
+            className="min-h-screen bg-black text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
-            <GooeyFilter />
-            <CustomCursor />
             <Navbar />
             <main>
               <Hero />
-              <About />
-              <Skills />
-              <Experience />
-              <Projects />
-              <Achievements />
-              <Contact />
+              <Suspense fallback={<div className="min-h-[50vh]" />}>
+                <About />
+                <Skills />
+                <Experience />
+                <Projects />
+                <Achievements />
+                <Contact />
+              </Suspense>
             </main>
-            <Footer />
+            <Suspense fallback={null}>
+              <Footer />
+            </Suspense>
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   )
 }
 
 export default App
+

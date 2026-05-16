@@ -84,7 +84,7 @@ export const Hero = memo(function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
-            Building cinematic, ultra-performant AI & Web3 platforms at FAANG standards. 
+            Building AI-powered systems with scalable engineering. 
             Welcome to my production-grade immersive 3D portfolio.
           </motion.p>
 
