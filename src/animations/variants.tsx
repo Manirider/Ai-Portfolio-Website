@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { motion, MotionProps } from 'framer-motion'
 
-// Common animation variants
+
 
 export const fadeInVariants = {
   initial: { opacity: 0 },
@@ -51,7 +51,7 @@ export const staggerContainerVariants = {
   },
 }
 
-// Common transition settings
+
 
 export const smoothTransition = {
   type: 'spring',
@@ -71,7 +71,7 @@ export const easeInOutTransition = {
   ease: 'easeInOut',
 }
 
-// Wrapper components
+
 
 interface AnimatedDivProps extends MotionProps {
   children: ReactNode

@@ -23,27 +23,27 @@ export function Contact() {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
+    
     setTimeout(() => {
       setIsSubmitting(false)
       setSubmitted(true)
       setFormData({ name: '', email: '', message: '' })
 
-      // Reset success message after 3 seconds
+      
       setTimeout(() => setSubmitted(false), 3000)
     }, 1500)
   }
 
   return (
     <section id="contact" className="relative section-padding bg-gradient-to-b from-black to-black overflow-hidden">
-      {/* Background */}
+      
       <div className="absolute inset-0 -z-10 opacity-10">
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl" />
       </div>
 
       <div className="container-custom">
         <StaggerContainer>
-          {/* Section title */}
+          
           <StaggerItem className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
               <SplitText text="Get in Touch" className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent inline-block" />
@@ -53,9 +53,9 @@ export function Contact() {
             </p>
           </StaggerItem>
 
-          {/* Contact options and form */}
+          
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {/* Contact methods */}
+            
             <StaggerItem className="lg:col-span-1 space-y-4">
               {[
                 {
@@ -91,7 +91,7 @@ export function Contact() {
               })}
             </StaggerItem>
 
-            {/* Contact form */}
+            
             <StaggerItem className="lg:col-span-2">
               <motion.form
                 id="contact-form"
@@ -99,7 +99,7 @@ export function Contact() {
                 className="p-8 rounded-xl border border-white/10 bg-gradient-to-br from-white/5 to-white/2 space-y-4"
                 whileHover={{ borderColor: 'rgba(255, 255, 255, 0.2)' }}
               >
-                {/* Name input */}
+                
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-white mb-2">
                     Name
@@ -117,7 +117,7 @@ export function Contact() {
                   />
                 </div>
 
-                {/* Email input */}
+                
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                     Email
@@ -135,7 +135,7 @@ export function Contact() {
                   />
                 </div>
 
-                {/* Message input */}
+                
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-white mb-2">
                     Message
@@ -153,7 +153,7 @@ export function Contact() {
                   />
                 </div>
 
-                {/* Submit button */}
+                
                 <MagneticButton>
                   <motion.button
                     type="submit"

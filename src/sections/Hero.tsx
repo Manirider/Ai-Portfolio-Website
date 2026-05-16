@@ -31,10 +31,10 @@ export const Hero = memo(function Hero() {
     >
       <Scene3D />
 
-      {/* Content */}
+      
       <div className="container-custom relative z-10 pt-20 pointer-events-none">
         <div className="max-w-4xl mx-auto text-center pointer-events-auto">
-          {/* Greeting */}
+          
           <motion.p
             className="text-gray-300 text-base sm:text-lg mb-4 font-medium tracking-widest uppercase"
             initial={{ opacity: 0, y: 10 }}
@@ -44,7 +44,7 @@ export const Hero = memo(function Hero() {
             Welcome to the future
           </motion.p>
 
-          {/* Main heading */}
+          
           <motion.div
             className="space-y-2 mb-6"
             initial={{ opacity: 0, y: 20 }}
@@ -61,7 +61,7 @@ export const Hero = memo(function Hero() {
             </h1>
           </motion.div>
 
-          {/* Rotating role with AnimatePresence */}
+          
           <div className="mb-8 h-12 sm:h-16 md:h-20 flex items-center justify-center drop-shadow-lg" aria-live="polite" aria-atomic="true">
             <AnimatePresence mode="wait">
               <motion.p
@@ -77,7 +77,7 @@ export const Hero = memo(function Hero() {
             </AnimatePresence>
           </div>
 
-          {/* Description */}
+          
           <motion.p
             className="text-gray-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-10 drop-shadow-md backdrop-blur-sm bg-black/10 p-4 rounded-2xl"
             initial={{ opacity: 0, y: 20 }}
@@ -88,7 +88,7 @@ export const Hero = memo(function Hero() {
             Welcome to my production-grade immersive 3D portfolio.
           </motion.p>
 
-          {/* CTA Buttons */}
+          
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -126,7 +126,7 @@ export const Hero = memo(function Hero() {
             </MagneticButton>
           </motion.div>
 
-          {/* Social Links — proper icons */}
+          
           <motion.div
             className="flex gap-4 sm:gap-6 justify-center"
             initial={{ opacity: 0, y: 20 }}
@@ -155,7 +155,7 @@ export const Hero = memo(function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      
       <motion.div
         className="absolute bottom-8 sm:bottom-10 left-1/2 -translate-x-1/2 pointer-events-auto"
         animate={{ y: [0, 8, 0] }}

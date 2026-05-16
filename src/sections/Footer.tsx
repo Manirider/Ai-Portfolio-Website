@@ -19,7 +19,7 @@ export function Footer() {
     <footer className="relative bg-black border-t border-white/10 py-12">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -36,7 +36,7 @@ export function Footer() {
             </p>
           </motion.div>
 
-          {/* Navigation */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -58,7 +58,7 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Resources */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Social */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -116,10 +116,10 @@ export function Footer() {
           </motion.div>
         </div>
 
-        {/* Divider */}
+        
         <div className="border-t border-white/10 pt-8 pb-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            {/* Copyright */}
+            
             <motion.p
               className="text-gray-500 text-sm text-center sm:text-left"
               initial={{ opacity: 0 }}
@@ -129,7 +129,7 @@ export function Footer() {
               © {currentYear} Manikanta Suryasai Sunkara. All rights reserved.
             </motion.p>
 
-            {/* Scroll to top */}
+            
             <motion.button
               onClick={scrollToTop}
               className="p-2 rounded-lg bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:bg-white/10 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"

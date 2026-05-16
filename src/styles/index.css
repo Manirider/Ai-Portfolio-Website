@@ -28,7 +28,7 @@
     z-index: 9999;
   }
 
-  /* Mandatory reduced-motion support */
+  
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -40,14 +40,14 @@
     }
   }
 
-  /* Improved focus indicator for accessibility */
+  
   :focus-visible {
     outline: 2px solid rgba(99, 102, 241, 0.8);
     outline-offset: 2px;
     border-radius: 4px;
   }
 
-  /* Skip link styles */
+  
   .skip-link {
     position: fixed;
     top: -100%;
@@ -68,7 +68,7 @@
     top: 1rem;
   }
 
-  /* Selection styling */
+  
   ::selection {
     background: rgba(99, 102, 241, 0.3);
     color: #fff;
@@ -142,7 +142,7 @@
       radial-gradient(at 80% 80%, rgba(139, 92, 246, 0.1) 0px, transparent 50%);
   }
 
-  /* GPU-accelerated transforms */
+  
   .gpu-accelerated {
     transform: translateZ(0);
     will-change: transform, opacity;
@@ -150,7 +150,7 @@
   }
 }
 
-/* Animated grid background - uses only transform (GPU) */
+
 .animated-grid {
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -168,7 +168,7 @@
   }
 }
 
-/* Blob animation - uses only transform (GPU) */
+
 @keyframes blob {
   0%, 100% {
     transform: translate3d(0, 0, 0) scale(1);
@@ -194,7 +194,7 @@
   animation-delay: 4s;
 }
 
-/* Glow effects */
+
 .glow {
   box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
 }
@@ -207,7 +207,7 @@
   box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
 }
 
-/* Smooth scroll for Lenis */
+
 html.lenis {
   height: auto;
 }

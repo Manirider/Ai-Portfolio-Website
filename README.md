@@ -4,8 +4,6 @@
 
 A cinematic, production-grade portfolio built with React, Three.js, and modern web technologies. Designed to showcase AI/ML engineering, full-stack development, and blockchain projects with an immersive 3D experience.
 
----
-
 ## ✨ Features
 
 - **Cinematic Loader** — Animated intro with gradient glow and loading bar

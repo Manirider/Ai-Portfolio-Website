@@ -4,7 +4,7 @@ import { Loader } from './sections/Loader'
 import { Navbar } from './components/Navbar'
 import { Hero } from './sections/Hero'
 
-// Lazy load below-the-fold sections for better LCP
+
 const About = lazy(() => import('./sections/About').then(m => ({ default: m.About })))
 const Skills = lazy(() => import('./sections/Skills').then(m => ({ default: m.Skills })))
 const Experience = lazy(() => import('./sections/Experience').then(m => ({ default: m.Experience })))

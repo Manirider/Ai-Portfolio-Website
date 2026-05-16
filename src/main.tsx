@@ -4,7 +4,7 @@ import App from './App'
 import './styles/index.css'
 import { initScroll } from './lib/scroll'
 
-// Initialize Lenis + GSAP ScrollTrigger (non-blocking)
+
 initScroll().catch(() => null)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

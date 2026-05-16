@@ -6,7 +6,7 @@ export default function CustomCursor() {
   const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
-    // Disable on touch devices
+    
     if (window.matchMedia('(pointer: coarse)').matches) return
 
     const updateMousePosition = (e: MouseEvent) => {
@@ -38,7 +38,7 @@ export default function CustomCursor() {
     }
   }, [])
 
-  // Hide cursor on touch devices entirely
+  
   if (typeof window !== 'undefined' && window.matchMedia('(pointer: coarse)').matches) {
     return null
   }

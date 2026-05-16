@@ -5,14 +5,14 @@ import { SplitText } from '../components/SplitText'
 export function About() {
   return (
     <section id="about" className="relative section-padding bg-gradient-to-b from-black via-black to-black overflow-hidden">
-      {/* Background elements */}
+      
       <div className="absolute inset-0 -z-10 opacity-10">
         <div className="absolute top-20 right-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl" />
       </div>
 
       <div className="container-custom">
         <StaggerContainer>
-          {/* Section title */}
+          
           <StaggerItem className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
               <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
@@ -24,9 +24,9 @@ export function About() {
             </p>
           </StaggerItem>
 
-          {/* Content grid */}
+          
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Profile Image */}
+            
             <StaggerItem>
               <motion.div
                 className="relative group h-full flex items-center justify-center"
@@ -34,7 +34,7 @@ export function About() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
               >
-                {/* Gradient ring wrapper */}
+                
                 <motion.div
                   className="relative rounded-2xl p-[3px] bg-gradient-to-br from-blue-500 via-purple-600 to-pink-500"
                   whileHover={{ scale: 1.03 }}
@@ -50,14 +50,14 @@ export function About() {
                   </div>
                 </motion.div>
                 
-                {/* Decorative background glow */}
+                
                 <div className="absolute inset-0 -z-10 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 blur-[80px] rounded-full" />
               </motion.div>
             </StaggerItem>
 
-            {/* Right: Content */}
+            
             <StaggerItem className="space-y-6">
-              {/* Bio */}
+              
               <div>
                 <h3 className="text-2xl font-bold mb-4 text-white">AI/ML Engineer & Full Stack Developer</h3>
                 <SplitText
@@ -72,7 +72,7 @@ export function About() {
                 />
               </div>
 
-              {/* Stats */}
+              
               <div className="grid grid-cols-3 gap-4">
                 {[
                   { label: 'GitHub Repos', value: '30+' },
@@ -92,7 +92,7 @@ export function About() {
                 ))}
               </div>
 
-              {/* Key values */}
+              
               <div className="space-y-3 pt-4">
                 {[
                   'Building AI-powered systems with scalable engineering',

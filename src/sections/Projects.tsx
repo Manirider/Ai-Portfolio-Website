@@ -29,7 +29,7 @@ function TiltCard({ children, onClick, onKeyDown }: { children: React.ReactNode,
     x.set(xPct)
     y.set(yPct)
     
-    // Custom properties for gradient glow trail
+    
     e.currentTarget.style.setProperty('--mx', `${mouseX}px`)
     e.currentTarget.style.setProperty('--my', `${mouseY}px`)
   }
@@ -90,7 +90,7 @@ export const Projects = memo(function Projects() {
         const fn = await mod.initProjectsEffects(rootRef.current)
         cleanup = fn as (() => void)
       } catch (e) {
-        // ignore
+        
       }
     })()
     return () => {
@@ -101,7 +101,7 @@ export const Projects = memo(function Projects() {
 
   return (
     <section id="projects" ref={(el) => (rootRef.current = el)} className="relative section-padding bg-gradient-to-b from-black to-black overflow-hidden">
-      {/* Background */}
+      
       <div className="absolute inset-0 -z-10 opacity-10">
         <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl" />
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl" />
@@ -109,7 +109,7 @@ export const Projects = memo(function Projects() {
 
       <div className="container-custom">
         <StaggerContainer>
-          {/* Section title */}
+          
           <StaggerItem className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
               <SplitText text="Featured Projects" className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent inline-block" />
@@ -119,7 +119,7 @@ export const Projects = memo(function Projects() {
             </p>
           </StaggerItem>
 
-          {/* Category filters */}
+          
           <StaggerItem className="flex flex-wrap gap-3 justify-center mb-12">
             {PROJECT_CATEGORIES.map((cat) => (
               <motion.button
@@ -139,7 +139,7 @@ export const Projects = memo(function Projects() {
             ))}
           </StaggerItem>
 
-          {/* Projects grid */}
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <AnimatePresence mode="wait">
               {filteredProjects.map((project, index) => (
@@ -160,7 +160,7 @@ export const Projects = memo(function Projects() {
                       }
                     }}
                   >
-                    {/* Image */}
+                    
                     <div className="relative h-56 overflow-hidden bg-gradient-to-br from-blue-600/30 via-purple-600/20 to-pink-600/30 rounded-t-2xl">
                       {project.image ? (
                         <LiquidImage src={project.image} alt={project.title} />
@@ -206,9 +206,9 @@ export const Projects = memo(function Projects() {
                       </motion.div>
                     </div>
 
-                    {/* Content */}
+                    
                     <div className="p-6 space-y-4">
-                      {/* Title and category */}
+                      
                       <div>
                         <div className="flex items-start justify-between gap-2 mb-2">
                           <h3 className="text-lg font-bold text-white">{project.title}</h3>
@@ -223,12 +223,12 @@ export const Projects = memo(function Projects() {
                         )}
                       </div>
 
-                      {/* Description */}
+                      
                       <p className="text-sm text-gray-300 line-clamp-2">
                         {project.description}
                       </p>
 
-                      {/* Technologies */}
+                      
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.slice(0, 4).map((tech) => (
                           <span
@@ -245,7 +245,7 @@ export const Projects = memo(function Projects() {
                         )}
                       </div>
 
-                      {/* Metrics */}
+                      
                       {project.metrics && (
                         <div className="grid grid-cols-3 gap-2 pt-4 border-t border-white/10">
                           {project.metrics.map((metric, i) => (
@@ -266,7 +266,7 @@ export const Projects = memo(function Projects() {
           </div>
         </StaggerContainer>
       </div>
-      {/* Modal */}
+      
       <AnimatePresence>
         {selectedProject && (
           <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />

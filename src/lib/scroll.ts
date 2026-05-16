@@ -1,9 +1,9 @@
-// Lenis + GSAP ScrollTrigger integration
-// Initializes smooth scrolling and connects GSAP ScrollTrigger to Lenis
+
+
 export async function initScroll() {
   if (typeof window === 'undefined') return null
 
-  // dynamic imports to keep bundle small and avoid SSR errors
+  
   const [{ default: Lenis }, gsap, ScrollTriggerModule] = await Promise.all([
     import('lenis'),
     import('gsap'),
@@ -17,7 +17,7 @@ export async function initScroll() {
       ;(gsap as any).registerPlugin(ScrollTrigger)
     }
   } catch (err) {
-    // ignore plugin registration errors
+    
   }
 
   const lenis = new Lenis({
@@ -26,7 +26,7 @@ export async function initScroll() {
     direction: 'vertical',
     gestureDirection: 'vertical',
     lerp: 0.1,
-    // cast options to any to avoid mismatched Lenis typings in this environment
+    
   } as any)
 
   function raf(time: number) {
@@ -36,7 +36,7 @@ export async function initScroll() {
 
   requestAnimationFrame(raf)
 
-  // Connect ScrollTrigger to Lenis
+  
   try {
     ScrollTrigger.scrollerProxy(document.documentElement, {
       scrollTop(value?: number) {
@@ -54,7 +54,7 @@ export async function initScroll() {
     ScrollTrigger.addEventListener('refresh', () => (lenis as any).update())
     setTimeout(() => ScrollTrigger.refresh(), 0)
   } catch (err) {
-    // If ScrollTrigger not available or scrollerProxy fails, skip
+    
   }
 
   return lenis

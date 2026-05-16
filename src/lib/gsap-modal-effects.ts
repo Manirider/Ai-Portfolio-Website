@@ -43,7 +43,7 @@ export async function initModalEffects(modalContent: HTMLElement | null) {
     } catch (e) {}
   }
 
-  // Timeline items: animate into view as modal content scrolls
+  
   const timelineItems = Array.from(modalContent.querySelectorAll('.modal-timeline .timeline-item')) as HTMLElement[]
   if (timelineItems.length) {
     try {

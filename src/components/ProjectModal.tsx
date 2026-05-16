@@ -16,13 +16,13 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
     onClose()
   }, [onClose])
 
-  // Focus management & Escape key
+  
   useEffect(() => {
     if (!project) return
 
     previousActiveRef.current = document.activeElement as HTMLElement | null
 
-    // Focus the close button inside modal
+    
     requestAnimationFrame(() => {
       const closeBtn = modalRef.current?.querySelector<HTMLElement>('[data-modal-close]')
       closeBtn?.focus()
@@ -34,7 +34,7 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
         return
       }
 
-      // Trap focus inside modal
+      
       if (e.key === 'Tab' && modalRef.current) {
         const focusable = modalRef.current.querySelectorAll<HTMLElement>(
           'button, a[href], input, textarea, [tabindex]:not([tabindex="-1"])'
@@ -52,19 +52,19 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
       }
     }
 
-    // Lock body scroll
+    
     document.body.style.overflow = 'hidden'
     window.addEventListener('keydown', onKey)
 
     return () => {
       window.removeEventListener('keydown', onKey)
       document.body.style.overflow = ''
-      // Restore focus
-      try { previousActiveRef.current?.focus() } catch (_e) { /* noop */ }
+      
+      try { previousActiveRef.current?.focus() } catch (_e) {}
     }
   }, [project, handleClose])
 
-  // GSAP border animation (progressive enhancement)
+  
   useEffect(() => {
     if (!project || !modalRef.current) return
     let cleanup: (() => void) | undefined
@@ -75,7 +75,7 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
         const fn = await mod.initModalEffects(modalRef.current)
         cleanup = fn as (() => void) | undefined
       } catch (_e) {
-        // GSAP optional — modal works without it
+        
       }
     })()
 
@@ -97,10 +97,10 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
       transition={{ duration: 0.2 }}
       onClick={handleClose}
     >
-      {/* Backdrop */}
+      
       <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true" />
 
-      {/* Modal Content */}
+      
       <motion.div
         ref={modalRef}
         className="relative z-10 max-w-4xl w-full bg-gradient-to-br from-gray-900/95 to-gray-950/95 rounded-2xl border border-white/10 overflow-hidden shadow-2xl max-h-[85vh] flex flex-col"
@@ -110,12 +110,12 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
         transition={{ duration: 0.3, ease: 'easeOut' }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* SVG border decoration */}
+        
         <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <rect className="modal-border" x="1" y="1" width="98" height="98" rx="6" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" />
         </svg>
 
-        {/* Header with close button */}
+        
         <div className="flex items-start justify-between gap-4 p-6 md:p-8 pb-0">
           <div>
             <h3 id="modal-title" className="text-xl sm:text-2xl font-bold text-white">{project.title}</h3>
@@ -160,10 +160,10 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
           </div>
         </div>
 
-        {/* Scrollable content */}
+        
         <div className="p-6 md:p-8 pt-4 overflow-y-auto flex-1" id="modal-desc">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Preview image */}
+            
             <div className="modal-preview h-48 sm:h-60 bg-gradient-to-br from-blue-600/20 to-purple-600/10 rounded-lg flex items-center justify-center overflow-hidden">
               {project.image ? (
                 <img
@@ -182,13 +182,13 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
               )}
             </div>
 
-            {/* Details */}
+            
             <div>
               <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                 {project.longDescription || project.description}
               </p>
 
-              {/* Technologies */}
+              
               {project.technologies && project.technologies.length > 0 && (
                 <div className="mt-4 flex flex-wrap gap-2" aria-label="Technologies used">
                   {project.technologies.map((t) => (
@@ -199,7 +199,7 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
                 </div>
               )}
 
-              {/* Metrics */}
+              
               {project.metrics && project.metrics.length > 0 && (
                 <div className="mt-6 grid grid-cols-3 gap-4" aria-label="Project metrics">
                   {project.metrics.map((m) => (
@@ -214,7 +214,7 @@ export default memo(function ProjectModal({ project, onClose }: ProjectModalProp
           </div>
         </div>
 
-        {/* Footer */}
+        
         <div className="p-6 md:p-8 pt-0 flex justify-end">
           <button
             onClick={handleClose}

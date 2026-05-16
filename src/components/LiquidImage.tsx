@@ -78,7 +78,7 @@ export function LiquidImage({ src, alt }: { src: string; alt: string }) {
           <ShaderImage src={src} isHovered={isHovered} />
         </Suspense>
       </Canvas>
-      {/* Fallback alt text for accessibility */}
+      
       <span className="sr-only">{alt}</span>
     </div>
   )

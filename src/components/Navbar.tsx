@@ -22,7 +22,7 @@ export const Navbar = memo(function Navbar() {
     setIsScrolled(scrollPosition > 50)
   }, [scrollPosition])
 
-  // Lock body scroll when mobile menu is open
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -47,7 +47,7 @@ export const Navbar = memo(function Navbar() {
 
   return (
     <>
-      {/* Desktop Navbar */}
+      
       <motion.nav
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300',
@@ -63,7 +63,7 @@ export const Navbar = memo(function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
+            
             <motion.div
               className="flex-shrink-0"
               whileHover={{ scale: 1.05 }}
@@ -80,7 +80,7 @@ export const Navbar = memo(function Navbar() {
               </a>
             </motion.div>
 
-            {/* Desktop Menu */}
+            
             <div className="hidden md:flex items-center space-x-1 lg:space-x-2 p-1 rounded-full bg-white/5 border border-white/10 backdrop-blur-md" role="menubar" style={{ filter: 'url(#gooey)' }}>
               {NAV_ITEMS.map((item) => (
                 <motion.button
@@ -109,7 +109,7 @@ export const Navbar = memo(function Navbar() {
               ))}
             </div>
 
-            {/* Right Actions */}
+            
             <div className="hidden md:flex items-center gap-3">
               {SOCIAL_LINKS.map((link) => {
                 const Icon = socialIcons[link.icon]
@@ -145,7 +145,7 @@ export const Navbar = memo(function Navbar() {
               </MagneticButton>
             </div>
 
-            {/* Mobile Menu Button */}
+            
             <motion.button
               className="md:hidden p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
               onClick={toggleMenu}
@@ -161,7 +161,7 @@ export const Navbar = memo(function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu */}
+      
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -175,14 +175,14 @@ export const Navbar = memo(function Navbar() {
             aria-modal="true"
             aria-label="Mobile navigation"
           >
-            {/* Backdrop */}
+            
             <motion.div
               className="absolute inset-0 bg-black/80 backdrop-blur-sm"
               onClick={closeMenu}
               aria-hidden="true"
             />
 
-            {/* Menu Content */}
+            
             <motion.div
               className="relative bg-black/95 border-b border-white/10 p-6 space-y-2"
               initial={{ y: -20, opacity: 0 }}

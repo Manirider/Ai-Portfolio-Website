@@ -1,4 +1,4 @@
-// Centralized GSAP ScrollTrigger effects for sections
+
 export async function initHeroEffects(root: HTMLElement | null) {
   if (!root || typeof window === 'undefined') return
 
@@ -15,7 +15,7 @@ export async function initHeroEffects(root: HTMLElement | null) {
   const blobs = Array.from(root.querySelectorAll('.hero-blob')) as HTMLElement[]
   const spotlight = root.querySelector('.hero-spotlight') as HTMLElement | null
 
-  // Parallax blobs
+  
   blobs.forEach((blob, i) => {
     gsap.to(blob, {
       y: (i % 2 === 0 ? -80 : 80),
@@ -31,7 +31,7 @@ export async function initHeroEffects(root: HTMLElement | null) {
     })
   })
 
-  // Spotlight subtle scale on scroll
+  
   if (spotlight) {
     gsap.to(spotlight, {
       scale: 1.05,
@@ -88,7 +88,7 @@ export async function initProjectsEffects(root: HTMLElement | null) {
     }
   )
 
-  // subtle hover lift handled in CSS/Framer Motion; return cleanup
+  
   return () => {
     try {
       ScrollTrigger.getAll().forEach((t: any) => t.kill())

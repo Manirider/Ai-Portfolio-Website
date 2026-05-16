@@ -9,7 +9,7 @@ function Word({ children, ...props }: { children: string; position: THREE.Vector
   
   useFrame((state) => {
     if (!ref.current) return
-    // Always face the camera
+    
     ref.current.quaternion.copy(state.camera.quaternion)
   })
 

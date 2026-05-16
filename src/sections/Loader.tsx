@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 
 export function Loader() {
   useEffect(() => {
-    // Prevent scroll while loading
+    
     document.body.style.overflow = 'hidden'
     return () => {
       document.body.style.overflow = 'unset'
@@ -77,7 +77,7 @@ export function Loader() {
       exit="exit"
       key="loader"
     >
-      {/* Animated background */}
+      
       <div className="absolute inset-0">
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-transparent to-purple-600/20"
@@ -92,11 +92,11 @@ export function Loader() {
         />
       </div>
 
-      {/* Center content */}
+      
       <motion.div
         className="relative z-10 text-center"
       >
-        {/* Logo/Initials */}
+        
         <motion.div
           variants={itemVariants}
           className="mb-8"
@@ -110,7 +110,7 @@ export function Loader() {
           </motion.div>
         </motion.div>
 
-        {/* Name */}
+        
         <motion.div variants={itemVariants} className="mb-3">
           <h1 className="text-4xl sm:text-5xl font-bold">
             <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
@@ -119,12 +119,12 @@ export function Loader() {
           </h1>
         </motion.div>
 
-        {/* Subtitle */}
+        
         <motion.div variants={itemVariants} className="mb-8">
           <p className="text-gray-400 text-lg">Crafting the future with code</p>
         </motion.div>
 
-        {/* Loading bar */}
+        
         <motion.div
           variants={itemVariants}
           className="flex flex-col items-center gap-4"
@@ -138,7 +138,7 @@ export function Loader() {
             />
           </div>
 
-          {/* Loading text */}
+          
           <motion.p
             className="text-sm text-gray-500 font-medium"
             animate={{ opacity: [0.5, 1, 0.5] }}
@@ -150,7 +150,7 @@ export function Loader() {
         </motion.div>
       </motion.div>
 
-      {/* Floating particles */}
+      
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}

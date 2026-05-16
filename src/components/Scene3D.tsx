@@ -4,7 +4,7 @@ import { OrbitControls, Float, Sphere, MeshDistortMaterial, Line } from '@react-
 import { Suspense } from 'react'
 import * as THREE from 'three'
 
-// Animated particles field
+
 function ParticleField({ count = 800 }: { count?: number }) {
   const mesh = useRef<THREE.Points>(null!)
   const positions = useMemo(() => {
@@ -56,7 +56,7 @@ function ParticleField({ count = 800 }: { count?: number }) {
   )
 }
 
-// Animated grid floor
+
 function GridFloor() {
   const mesh = useRef<THREE.Mesh>(null!)
 
@@ -104,7 +104,7 @@ function GridFloor() {
   )
 }
 
-// Neural connection lines
+
 function NeuralNetwork() {
   const group = useRef<THREE.Group>(null!)
   const nodes = useMemo(() => {
@@ -167,7 +167,7 @@ export default function Scene3D() {
       setIsMobile(window.innerWidth < 768)
     }
     
-    // Check for WebGL support
+    
     try {
       const canvas = document.createElement('canvas')
       const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
@@ -195,7 +195,7 @@ export default function Scene3D() {
         <pointLight position={[5, 5, 5]} color="#ec4899" intensity={0.5} />
         
         <Suspense fallback={null}>
-          {/* Main hero sphere */}
+          
           <Float speed={2} rotationIntensity={1} floatIntensity={2}>
             <Sphere args={[1.2, isMobile ? 32 : 64, isMobile ? 32 : 64]} position={isMobile ? [0, 1, -2] : [2.5, 0, -2]}>
               <MeshDistortMaterial
@@ -209,7 +209,7 @@ export default function Scene3D() {
             </Sphere>
           </Float>
 
-          {/* Secondary sphere */}
+          
           {!isMobile && (
             <Float speed={1.5} rotationIntensity={2} floatIntensity={1.5}>
               <Sphere args={[0.8, 64, 64]} position={[-2.5, 1, -1]}>
@@ -225,7 +225,7 @@ export default function Scene3D() {
             </Float>
           )}
 
-          {/* Tertiary small sphere */}
+          
           {!isMobile && (
             <Float speed={3} rotationIntensity={1.5} floatIntensity={1}>
               <Sphere args={[0.4, 32, 32]} position={[1, 2.5, -3]}>
@@ -241,13 +241,13 @@ export default function Scene3D() {
             </Float>
           )}
 
-          {/* Particle field */}
+          
           <ParticleField count={isMobile ? 300 : 800} />
 
-          {/* Animated grid floor */}
+          
           {!isMobile && <GridFloor />}
 
-          {/* Neural network visualization */}
+          
           {!isMobile && <NeuralNetwork />}
 
           <OrbitControls 

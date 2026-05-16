@@ -19,14 +19,14 @@ export function Skills() {
 
   return (
     <section id="skills" className="relative section-padding bg-gradient-to-b from-black to-black overflow-hidden">
-      {/* Background */}
+      
       <div className="absolute inset-0 -z-10 opacity-5">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl" />
       </div>
 
       <div className="container-custom">
         <StaggerContainer>
-          {/* Section title */}
+          
           <StaggerItem className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
               <span className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent">
@@ -38,7 +38,7 @@ export function Skills() {
             </p>
           </StaggerItem>
 
-          {/* Category filters */}
+          
           <StaggerItem className="flex flex-wrap gap-3 justify-center mb-12">
             <motion.button
               onClick={() => setSelectedCategory(null)}
@@ -70,7 +70,7 @@ export function Skills() {
             ))}
           </StaggerItem>
 
-          {/* Skills grid */}
+          
           <div className="space-y-10">
             <AnimatePresence mode="wait">
               {filteredSkills.map((skillGroup, groupIdx) => (
@@ -111,7 +111,7 @@ export function Skills() {
                               </span>
                             </div>
 
-                            {/* Level bar */}
+                            
                             <div className="h-1 rounded-full bg-white/[0.06] overflow-hidden">
                               <motion.div
                                 className={`h-full rounded-full bg-gradient-to-r ${level.color}`}
@@ -123,7 +123,7 @@ export function Skills() {
                             </div>
                           </motion.div>
 
-                          {/* Glow on hover */}
+                          
                           <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/30 to-purple-600/30 rounded-xl blur opacity-0 group-hover:opacity-15 -z-10 transition-opacity" />
                         </motion.div>
                       )

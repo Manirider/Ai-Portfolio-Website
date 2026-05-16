@@ -46,14 +46,14 @@ export function Achievements() {
 
   return (
     <section id="achievements" className="relative section-padding bg-gradient-to-b from-black to-black overflow-hidden">
-      {/* Background */}
+      
       <div className="absolute inset-0 -z-10 opacity-10">
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl" />
       </div>
 
       <div className="container-custom">
         <StaggerContainer>
-          {/* Section title */}
+          
           <StaggerItem className="text-center mb-16">
             <h2 className="text-4xl sm:text-5xl font-bold font-grotesk mb-4">
               <SplitText text="Achievements & Impact" className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent inline-block" />
@@ -63,7 +63,7 @@ export function Achievements() {
             </p>
           </StaggerItem>
 
-          {/* Stats grid */}
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
             {stats.map((stat, i) => (
               <StaggerItem key={i}>
@@ -83,7 +83,7 @@ export function Achievements() {
             ))}
           </div>
 
-          {/* Achievements list */}
+          
           <div className="max-w-3xl mx-auto">
             <div className="space-y-4">
               {ACHIEVEMENTS.map((achievement, index) => (
