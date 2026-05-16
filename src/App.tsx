@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Loader } from './sections/Loader'
 import { Navbar } from './components/Navbar'
 import { Hero } from './sections/Hero'
-
+import Scene3D from './components/Scene3D'
 
 const About = lazy(() => import('./sections/About').then(m => ({ default: m.About })))
 const Skills = lazy(() => import('./sections/Skills').then(m => ({ default: m.Skills })))
@@ -33,13 +33,14 @@ function App() {
         {!isLoading && (
           <motion.div
             key="main-content"
-            className="min-h-screen bg-black text-[#ededed]"
+            className="min-h-screen bg-transparent text-[#ededed]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: 'easeOut' }}
           >
             {/* Global Advanced Animation Background */}
             <div className="fixed inset-0 z-[-1] animated-grid opacity-[0.03] pointer-events-none" />
+            <Scene3D />
             
             <Navbar />
             <main>

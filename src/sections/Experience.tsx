@@ -6,7 +6,7 @@ import { SplitText } from '../components/SplitText'
 
 export function Experience() {
   return (
-    <section id="experience" className="relative section-padding bg-gradient-to-b from-black via-black to-black overflow-hidden">
+    <section id="experience" className="relative section-padding bg-transparent overflow-hidden">
       
       <DataStream />
       <div className="absolute inset-0 -z-10 opacity-20">

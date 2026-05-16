@@ -2,7 +2,6 @@ import { useEffect, useRef, useState, memo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Download, Github, Linkedin, Mail, LucideIcon } from 'lucide-react'
 import { ROLE_TITLES, SOCIAL_LINKS } from '../constants'
-import Scene3D from '../components/Scene3D'
 import { MagneticButton } from '../components/MagneticButton'
 
 const socialIconMap: Record<string, LucideIcon> = {
@@ -29,8 +28,7 @@ export const Hero = memo(function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero introduction"
     >
-      <Scene3D />
-
+      {/* Scene3D moved to App.tsx for global background */}
       
       <div className="container-custom relative z-10 pt-20 pointer-events-none">
         <div className="max-w-4xl mx-auto text-center pointer-events-auto">

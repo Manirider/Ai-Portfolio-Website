@@ -182,11 +182,11 @@ export default function Scene3D() {
   }, [])
 
   if (!hasWebGL) {
-    return <div className="absolute inset-0 -z-10 bg-black" />
+    return <div className="fixed inset-0 -z-10 bg-black" />
   }
 
   return (
-    <div className="absolute inset-0 -z-10 bg-black overflow-hidden pointer-events-none sm:pointer-events-auto">
+    <div className="fixed inset-0 -z-10 bg-black overflow-hidden pointer-events-none sm:pointer-events-auto">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }} dpr={[1, isMobile ? 1 : 1.5]} gl={{ antialias: !isMobile, alpha: true }}>
         <color attach="background" args={['#000000']} />
         <ambientLight intensity={0.4} />

@@ -45,7 +45,7 @@ export function Achievements() {
   ]
 
   return (
-    <section id="achievements" className="relative section-padding bg-gradient-to-b from-black to-black overflow-hidden">
+    <section id="achievements" className="relative section-padding bg-transparent overflow-hidden">
       
       <div className="absolute inset-0 -z-10 opacity-10">
         <div className="absolute top-0 right-1/3 w-96 h-96 bg-pink-600 rounded-full mix-blend-multiply filter blur-3xl" />

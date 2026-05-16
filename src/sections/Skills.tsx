@@ -18,7 +18,7 @@ export function Skills() {
     : SKILLS
 
   return (
-    <section id="skills" className="relative section-padding bg-gradient-to-b from-black to-black overflow-hidden">
+    <section id="skills" className="relative section-padding bg-transparent overflow-hidden">
       
       <div className="absolute inset-0 -z-10 opacity-5">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl" />

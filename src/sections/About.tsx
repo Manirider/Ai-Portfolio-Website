@@ -4,7 +4,7 @@ import { SplitText } from '../components/SplitText'
 
 export function About() {
   return (
-    <section id="about" className="relative section-padding bg-gradient-to-b from-black via-black to-black overflow-hidden">
+    <section id="about" className="relative section-padding bg-transparent overflow-hidden">
       
       <div className="absolute inset-0 -z-10 opacity-10">
         <div className="absolute top-20 right-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-multiply filter blur-3xl" />
